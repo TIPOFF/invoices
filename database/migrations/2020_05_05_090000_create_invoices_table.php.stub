@@ -9,13 +9,13 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $userModel = config('invoices.model_class.user');
+            $userModel = config('tipoff.model_class.user');
             $userTable = (new $userModel)->getTable();
 
-            $orderModel = config('invoices.model_class.order');
+            $orderModel = config('tipoff.model_class.order');
             $orderTable = (new $orderModel)->getTable();
 
-            $customerModel = config('invoices.model_class.customer');
+            $customerModel = config('tipoff.model_class.customer');
             $customerTable = (new $customerModel)->getTable();
 
             $table->id();
