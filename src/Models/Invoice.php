@@ -1,11 +1,11 @@
 <?php namespace Tipoff\Invoices\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Tipoff\Support\Models\BaseModel;
 
-class Invoice extends Model
+class Invoice extends BaseModel
 {
     use HasFactory;
     use SoftDeletes;
