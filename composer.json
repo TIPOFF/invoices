@@ -46,7 +46,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tipoff\\Invoices\\InvoicesServiceProvider"
+                "Tipoff\\Invoices\\InvoicesServiceProvider",
+                "Tipoff\\Invoices\\AuthServiceProvider"
             ],
             "aliases": {
                 "Invoices": "Tipoff\\Invoices\\InvoicesFacade"
