@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Tipoff\Invoices;
 
-use Illuminate\Support\Str;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Tipoff\Invoices\Commands\InvoicesCommand;
 
 class InvoicesServiceProvider extends PackageServiceProvider
 {
