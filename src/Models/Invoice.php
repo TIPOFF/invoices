@@ -49,26 +49,26 @@ class Invoice extends BaseModel
 
     public function order()
     {
-        return $this->belongsTo(config('tipoff.model_class.order'));
+        return $this->belongsTo(app('order'));
     }
 
     public function customer()
     {
-        return $this->belongsTo(config('tipoff.model_class.customer'));
+        return $this->belongsTo(app('customer'));
     }
 
     public function creator()
     {
-        return $this->belongsTo(config('tipoff.model_class.user'), 'creator_id');
+        return $this->belongsTo(app('user'), 'creator_id');
     }
 
     public function updater()
     {
-        return $this->belongsTo(config('tipoff.model_class.user'), 'updater_id');
+        return $this->belongsTo(app('user'), 'updater_id');
     }
 
     public function payments()
     {
-        return $this->hasMany(config('tipoff.model_class.payment'));
+        return $this->hasMany(app('payment'));
     }
 }
