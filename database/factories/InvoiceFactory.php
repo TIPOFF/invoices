@@ -20,13 +20,13 @@ class InvoiceFactory extends Factory
     public function definition()
     {
         return [
-            'order_id'        => randomOrCreate(config('tipoff.model_class.order')),
+            'order_id'        => randomOrCreate(app('order')),
             'amount'          => $this->faker->numberBetween(100, 50000),
             'invoiced_at'     => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
             'due_at'          => $this->faker->date(),
             'note'            => $this->faker->sentences(1, true),
-            'creator_id'      => randomOrCreate(config('tipoff.model_class.user')),
-            'updater_id'      => randomOrCreate(config('tipoff.model_class.user')),
+            'creator_id'      => randomOrCreate(app('user')),
+            'updater_id'      => randomOrCreate(app('user')),
         ];
     }
 }
