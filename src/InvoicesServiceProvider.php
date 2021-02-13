@@ -4,25 +4,19 @@ declare(strict_types=1);
 
 namespace Tipoff\Invoices;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Tipoff\Invoices\Models\Invoice;
+use Tipoff\Invoices\Policies\InvoicePolicy;
+use Tipoff\Support\TipoffPackage;
+use Tipoff\Support\TipoffServiceProvider;
 
-class InvoicesServiceProvider extends PackageServiceProvider
+class InvoicesServiceProvider extends TipoffServiceProvider
 {
-    public function boot()
+    public function configureTipoffPackage(TipoffPackage $package): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        parent::boot();
-    }
-
-    public function configurePackage(Package $package): void
-    {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
+            ->hasPolicies([
+                Invoice::class => InvoicePolicy::class,
+            ])
             ->name('invoices')
             ->hasConfigFile();
     }
