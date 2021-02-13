@@ -3,12 +3,16 @@
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Tipoff\Support\Models\BaseModel;
+use Tipoff\Support\Traits\HasCreator;
 use Tipoff\Support\Traits\HasPackageFactory;
+use Tipoff\Support\Traits\HasUpdater;
 
 class Invoice extends BaseModel
 {
     use HasPackageFactory;
     use SoftDeletes;
+    use HasCreator;
+    use HasUpdater;
 
     protected $guarded = [
         'id',
@@ -28,9 +32,7 @@ class Invoice extends BaseModel
             if (empty($invoice->customer_id)) {
                 $invoice->customer_id = $invoice->order->customer_id;
             }
-            if (auth()->check()) {
-                $invoice->creator_id = auth()->id();
-            }
+
             do {
                 $token = $invoice->order->order_number . '-' . Str::upper(Str::random(2));
             } while (self::where('invoice_number', $token)->first()); //check if the token already exists and if it does, try again
@@ -40,9 +42,6 @@ class Invoice extends BaseModel
         static::saving(function ($invoice) {
             if (empty($invoice->order_id)) {
                 throw new \Exception('An invoice must be part of an order.');
-            }
-            if (auth()->check()) {
-                $invoice->updater_id = auth()->id();
             }
         });
     }
@@ -55,16 +54,6 @@ class Invoice extends BaseModel
     public function customer()
     {
         return $this->belongsTo(app('customer'));
-    }
-
-    public function creator()
-    {
-        return $this->belongsTo(app('user'), 'creator_id');
-    }
-
-    public function updater()
-    {
-        return $this->belongsTo(app('user'), 'updater_id');
     }
 
     public function payments()
