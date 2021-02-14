@@ -1,4 +1,8 @@
-<?php namespace Tipoff\Invoices\Models;
+<?php 
+
+declare(strict_types=1);
+
+namespace Tipoff\Invoices\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
