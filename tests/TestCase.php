@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tipoff\Invoices\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
