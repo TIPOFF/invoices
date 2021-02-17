@@ -96,7 +96,7 @@ class Invoice extends BaseResource
     public function filters(Request $request)
     {
         return [
-            new Filters\OrderLocation,
+            // new Tipoff\LocationsFilters\OrderLocation,
         ];
     }
 }
