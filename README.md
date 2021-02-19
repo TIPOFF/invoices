@@ -5,15 +5,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/tipoff/invoices.svg?style=flat-square)](https://packagist.org/packages/tipoff/invoices)
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-invoices-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-invoices-laravel)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This is where your description should go.
 
 ## Installation
 
@@ -42,12 +34,17 @@ return [
 ];
 ```
 
-## Usage
+## Models
 
-```php
-$invoices = new Tipoff\Invoices();
-echo $invoices->echoPhrase('Hello, Tipoff!');
-```
+We include the following model:
+
+**List of Models**
+
+- Invoice
+
+For each of these models, this package implements an [authorization policy](https://laravel.com/docs/8.x/authorization) that extennds the roles and permissions approach of the [tipoff/authorization](https://github.com/tipoff/authorization) package. The policies for each model in this package are registered through the package.
+
+The models also have [Laravel Nova resources](https://nova.laravel.com/docs/3.0/resources/) in this package and they are also registered through the package.
 
 ## Testing
 
