@@ -17,6 +17,9 @@ class InvoicesServiceProvider extends TipoffServiceProvider
             ->hasPolicies([
                 Invoice::class => InvoicePolicy::class,
             ])
+            ->hasNovaResources([
+                \Tipoff\Invoices\Nova\Invoice::class,
+            ])
             ->name('invoices')
             ->hasConfigFile();
     }
