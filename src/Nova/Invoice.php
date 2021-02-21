@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tipoff\Invoices\Nova;
 
 use Illuminate\Http\Request;
