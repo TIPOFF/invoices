@@ -33,8 +33,8 @@ class Invoice extends BaseModel
         parent::boot();
 
         static::creating(function ($invoice) {
-            if (empty($invoice->customer_id)) {
-                $invoice->customer_id = $invoice->order->customer_id;
+            if (empty($invoice->user_id)) {
+                $invoice->user_id = $invoice->order->user_id;
             }
 
             do {
@@ -55,9 +55,9 @@ class Invoice extends BaseModel
         return $this->belongsTo(app('order'));
     }
 
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo(app('customer'));
+        return $this->belongsTo(app('user'));
     }
 
     public function payments()
