@@ -52,7 +52,7 @@ class Invoice extends BaseResource
             ID::make()->sortable(),
             Text::make('Invoice Number')->sortable(),
             nova('order') ? BelongsTo::make('Order', 'order', nova('order'))->sortable() : null,
-            nova('customer') ? BelongsTo::make('Customer', 'customer', nova('customer'))->sortable() : null,
+            nova('user') ? BelongsTo::make('Customer', 'user', nova('user'))->sortable() : null,
             Currency::make('Amount')->asMinorUnits()->sortable(),
             Date::make('Invoiced At', 'invoiced_at')->sortable(),
         ]);
@@ -63,7 +63,7 @@ class Invoice extends BaseResource
         return array_filter([
             Text::make('Invoice Number')->exceptOnForms(),
             nova('order') ? BelongsTo::make('Order', 'order', nova('order'))->hideWhenUpdating() : null,
-            nova('customer') ? BelongsTo::make('Customer', 'customer', nova('customer'))->exceptOnForms() : null,
+            nova('user') ? BelongsTo::make('Customer', 'user', nova('user'))->exceptOnForms() : null,
             Currency::make('Amount')->asMinorUnits()
                 ->step('0.01')
                 ->resolveUsing(function ($value) {

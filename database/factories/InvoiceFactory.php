@@ -25,7 +25,7 @@ class InvoiceFactory extends Factory
     {
         return [
             'order_id'        => randomOrCreate(app('order')),
-            'customer_id'     => randomOrCreate(app('customer')),
+            'user_id'         => randomOrCreate(app('user')),
             'amount'          => $this->faker->numberBetween(100, 50000),
             'invoiced_at'     => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
             'due_at'          => $this->faker->date(),
