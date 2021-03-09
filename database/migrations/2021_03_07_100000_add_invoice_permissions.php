@@ -11,8 +11,7 @@ class AddInvoicePermissions extends BasePermissionsMigration
         $permissions = [
             'view invoice'=> ['Owner', 'Staff'],
             'create invoice' => ['Owner'],
-            'update invoice' => ['Owner'],
-            'delete invoice' => [],   // Admin only
+            'update invoice' => ['Owner']
         ];
 
         $this->createPermissions($permissions);
