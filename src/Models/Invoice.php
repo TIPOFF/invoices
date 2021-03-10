@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tipoff\Invoices\Models;
 
+use Assert\Assert;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Tipoff\Support\Models\BaseModel;
@@ -44,9 +45,9 @@ class Invoice extends BaseModel
         });
 
         static::saving(function ($invoice) {
-            if (empty($invoice->order_id)) {
-                throw new \Exception('An invoice must be part of an order.');
-            }
+            Assert::lazy()
+                ->that($invoice->order_id)->notEmpty('An invoice must be part of an order.')
+                ->verifyNow();
         });
     }
 
