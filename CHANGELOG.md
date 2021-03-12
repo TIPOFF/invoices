@@ -24,3 +24,7 @@ All notable changes to `invoices` will be documented in this file.
 
 - migrate permissions
 - grant permissions to roles
+
+## 2.0.2 - 2021-03-12
+
+- update permissions
