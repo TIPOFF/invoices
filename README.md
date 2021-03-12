@@ -1,7 +1,7 @@
 # Laravel Package for using invoices in Ecommerce
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tipoff/invoices.svg?style=flat-square)](https://packagist.org/packages/tipoff/invoices)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/tipoff/invoices/run-tests?label=tests)](https://github.com/tipoff/invoices/actions?query=workflow%3ATests+branch%3Amaster)
+![Tests](https://github.com/tipoff/invoices/workflows/Tests/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/tipoff/invoices.svg?style=flat-square)](https://packagist.org/packages/tipoff/invoices)
 
 
