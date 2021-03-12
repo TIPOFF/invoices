@@ -25,6 +25,8 @@ class Invoice extends BaseResource
     public static $search = [
         'invoice_number',
     ];
+    
+    public static $group = 'Operations Units';
 
     public static function indexQuery(NovaRequest $request, $query)
     {
@@ -43,8 +45,6 @@ class Invoice extends BaseResource
             return $orderlocation->whereIn('location_id', $request->user()->locations->pluck('id'));
         });
     }
-
-    public static $group = 'Operations';
 
     public function fieldsForIndex(NovaRequest $request)
     {
