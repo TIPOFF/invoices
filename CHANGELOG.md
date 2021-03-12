@@ -19,3 +19,8 @@ All notable changes to `invoices` will be documented in this file.
 - register policy
 - add nova resource
 - register nova resource
+
+## 2.0.1 - 2021-03-12
+
+- migrate permissions
+- grant permissions to roles
