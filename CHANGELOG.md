@@ -28,3 +28,7 @@ All notable changes to `invoices` will be documented in this file.
 ## 2.0.2 - 2021-03-12
 
 - update permissions
+
+## 2.1.0 - 2021-04-13
+
+- update nova resources
