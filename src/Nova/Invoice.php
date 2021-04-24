@@ -25,19 +25,12 @@ class Invoice extends BaseResource
     public static $search = [
         'invoice_number',
     ];
-    
+
     public static $group = 'Operations Units';
 
     public static function indexQuery(NovaRequest $request, $query)
     {
-        if ($request->user()->hasRole([
-            'Admin',
-            'Owner',
-            'Accountant',
-            'Executive',
-            'Reservation Manager',
-            'Reservationist',
-        ])) {
+        if ($request->user()->hasPermissionTo('all locations')) {
             return $query;
         }
 
@@ -92,7 +85,7 @@ class Invoice extends BaseResource
             $this->updaterDataFields(),
         );
     }
-    
+
     public function filters(Request $request)
     {
         return [
