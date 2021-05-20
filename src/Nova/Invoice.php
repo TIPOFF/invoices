@@ -30,14 +30,7 @@ class Invoice extends BaseResource
 
     public static function indexQuery(NovaRequest $request, $query)
     {
-        if ($request->user()->hasRole([
-            'Admin',
-            'Owner',
-            'Accountant',
-            'Executive',
-            'Reservation Manager',
-            'Reservationist',
-        ])) {
+        if ($request->user()->hasPermissionTo('all locations')) {
             return $query;
         }
 
@@ -71,7 +64,7 @@ class Invoice extends BaseResource
                 })
                 ->fillUsing(function ($request, $model, $attribute) {
                     $model->$attribute = $request->$attribute * 100;
-                }),
+                })->rules('required'),
             Text::make('Note'),
             DateTime::make('Invoiced At', 'invoiced_at')->exceptOnForms(),
             Date::make('Due Date', 'due_at'),
